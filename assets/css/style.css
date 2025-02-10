@@ -1,14 +1,13 @@
-/* Memastikan body memusatkan semua konten */
+/* Mengatur elemen body untuk memusatkan konten secara vertikal dan horizontal */
 body {
   margin: 0;
   min-height: 100vh;
   display: grid;
-  place-content: center; /* Memusatkan seluruh konten secara vertikal dan horizontal */
+  place-content: center;  /* Memusatkan konten secara vertikal dan horizontal */
   background: antiquewhite;
   overflow: hidden;
 }
 
-/* Menata kontainer headline */
 #hedlinecontainer {
   display: flex;
   justify-content: center;
@@ -17,7 +16,6 @@ body {
   margin-bottom: 60px;
 }
 
-/* Menata teks pada headline */
 #shine {
   font-size: 60px;
   font-weight: bold;
@@ -27,12 +25,11 @@ body {
   -webkit-background-size: 150px;
   -webkit-background-clip: text;
   -webkit-animation-name: shine;
-  -webkit-animation-duration: 3s;
+  -webkit-animation-duration: 3s; /* Durasi animasi */
   -webkit-animation-iteration-count: infinite;
   text-shadow: 0 0px 0px rgba(233, 85, 189, 0.419);
 }
 
-/* Animasi shimmer untuk teks */
 @-webkit-keyframes shine {
   0%, 10% {
     background-position: -1000px;
@@ -52,15 +49,13 @@ body {
 .gallery {
   --d: 10s; /* Durasi animasi */
   display: grid;
-  place-items: center; /* Memusatkan gambar di dalam galeri */
-  width: 220px; /* Ukuran lebar galeri */
-  height: 220px; /* Ukuran tinggi galeri */
+  place-items: center;  /* Memusatkan gambar */
+  width: 220px;
+  height: 220px; /* Menyesuaikan ukuran gambar */
   margin-left: auto;
   margin-right: auto;
-  position: relative; /* Posisi relatif untuk memastikan gambar berlapis */
 }
 
-/* Gambar dalam galeri */
 .gallery > img {
   grid-area: 1/1;
   width: 100%;
@@ -72,7 +67,38 @@ body {
   animation: slide var(--d) infinite, z-order var(--d) infinite steps(1);
 }
 
-/* Animasi pergeseran gambar */
+/* Menambahkan efek untuk gambar terakhir */
+.gallery img:last-child {
+  animation-name: slide, z-order-last;
+}
+
+/* Mengatur delay dan rotasi gambar */
+.gallery > img:nth-child(1) {
+  animation-delay: calc(0*var(--d));
+  --r: 16deg;
+}
+
+.gallery > img:nth-child(2) {
+  animation-delay: calc(-0.2*var(--d));
+  --r: -1deg;
+}
+
+.gallery > img:nth-child(3) {
+  animation-delay: calc(-0.4*var(--d));
+  --r: -19deg;
+}
+
+.gallery > img:nth-child(4) {
+  animation-delay: calc(-0.6*var(--d));
+  --r: 6deg;
+}
+
+.gallery > img:nth-child(5) {
+  animation-delay: calc(-0.8*var(--d));
+  --r: -8deg;
+}
+
+/* Animasi pergerakan gambar */
 @keyframes slide {
   10% {
     transform: translateX(120%) rotate(var(--r));
@@ -82,7 +108,7 @@ body {
   }
 }
 
-/* Mengatur urutan tumpukan gambar */
+/* Menambahkan pengaturan z-index untuk urutan gambar */
 @keyframes z-order {
   10%, 20% {
     z-index: 1;
@@ -92,6 +118,7 @@ body {
   }
 }
 
+/* Menambahkan z-index untuk gambar terakhir */
 @keyframes z-order-last {
   10%, 20% {
     z-index: 1;
@@ -101,21 +128,24 @@ body {
   }
 }
 
-/* Responsif untuk tampilan kecil (misalnya smartphone) */
+/* Responsif untuk perangkat dengan layar lebih kecil */
 @media only screen and (max-width: 600px) {
   #shine {
     font-size: 22px;
   }
+
   #hedlinecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 60px;
   }
 
   .gallery {
-    --d: 10s;
+    --d: 10s; /* Durasi animasi */
     display: grid;
-    place-items: center;
-    width: 150px; /* Sesuaikan ukuran galeri untuk perangkat kecil */
-    height: 150px;
+    place-items: center;  /* Memusatkan gambar */
+    width: 150px;
     margin-left: auto;
     margin-right: auto;
   }
