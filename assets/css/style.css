@@ -13,14 +13,14 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 #hedlinecontainer2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 2px;
   margin-bottom: 60px;
 }
 
