@@ -1,35 +1,34 @@
-/* Mengatur elemen body untuk memusatkan konten secara vertikal dan horizontal */
+/* Font Romantis */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* Menambahkan Font dan Membuat Teks Romantis */
 body {
   margin: 0;
   min-height: 100vh;
-  display: grid;
-  place-content: center;  /* Memusatkan konten secara vertikal dan horizontal */
-  background: antiquewhite;
-  overflow: hidden;
-}
-
-#hedlinecontainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 60px;
+  flex-direction: column;
+  justify-content: center; /* Memusatkan secara vertikal */
+  align-items: center; /* Memusatkan secara horizontal */
+  background: linear-gradient(to bottom right, #f8c9d2, #ff9dc1); /* Latar belakang dengan gradasi warna lembut */
+  font-family: 'Great Vibes', cursive; /* Font romantis */
+  overflow: hidden;
 }
 
 #shine {
   font-size: 60px;
   font-weight: bold;
-  color: rgba(255, 0, 102, 0.3);
+  color: rgba(255, 0, 102, 0.7);
   z-index: 10;
   background: -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
   -webkit-background-size: 150px;
   -webkit-background-clip: text;
   -webkit-animation-name: shine;
-  -webkit-animation-duration: 3s; /* Durasi animasi */
+  -webkit-animation-duration: 3s;
   -webkit-animation-iteration-count: infinite;
-  text-shadow: 0 0px 0px rgba(233, 85, 189, 0.419);
+  text-shadow: 0 0px 5px rgba(233, 85, 189, 0.6); /* Menambahkan efek cahaya lembut di sekitar teks */
 }
 
+/* Efek Shine */
 @-webkit-keyframes shine {
   0%, 10% {
     background-position: -1000px;
@@ -45,15 +44,23 @@ body {
   }
 }
 
-/* Galeri gambar */
+/* Gaya Teks Tambahan */
+#shine, .gallery img {
+  color: #ff66b2; /* Warna pink romantis */
+  text-align: center;
+  letter-spacing: 2px; /* Memberikan jarak antar huruf untuk kesan elegan */
+}
+
+/* Galeri Gambar */
 .gallery {
   --d: 10s; /* Durasi animasi */
   display: grid;
-  place-items: center;  /* Memusatkan gambar */
+  place-items: center; /* Memusatkan gambar */
   width: 220px;
-  height: 220px; /* Menyesuaikan ukuran gambar */
+  height: 220px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
 }
 
 .gallery > img {
@@ -62,43 +69,12 @@ body {
   aspect-ratio: 1;
   object-fit: cover;
   border: 10px solid #f2f2f2;
-  box-shadow: 0 0 4px #0007;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Efek bayangan yang lembut */
   z-index: 2;
   animation: slide var(--d) infinite, z-order var(--d) infinite steps(1);
 }
 
-/* Menambahkan efek untuk gambar terakhir */
-.gallery img:last-child {
-  animation-name: slide, z-order-last;
-}
-
-/* Mengatur delay dan rotasi gambar */
-.gallery > img:nth-child(1) {
-  animation-delay: calc(0*var(--d));
-  --r: 16deg;
-}
-
-.gallery > img:nth-child(2) {
-  animation-delay: calc(-0.2*var(--d));
-  --r: -1deg;
-}
-
-.gallery > img:nth-child(3) {
-  animation-delay: calc(-0.4*var(--d));
-  --r: -19deg;
-}
-
-.gallery > img:nth-child(4) {
-  animation-delay: calc(-0.6*var(--d));
-  --r: 6deg;
-}
-
-.gallery > img:nth-child(5) {
-  animation-delay: calc(-0.8*var(--d));
-  --r: -8deg;
-}
-
-/* Animasi pergerakan gambar */
+/* Animasi Gambar */
 @keyframes slide {
   10% {
     transform: translateX(120%) rotate(var(--r));
@@ -108,7 +84,6 @@ body {
   }
 }
 
-/* Menambahkan pengaturan z-index untuk urutan gambar */
 @keyframes z-order {
   10%, 20% {
     z-index: 1;
@@ -118,7 +93,6 @@ body {
   }
 }
 
-/* Menambahkan z-index untuk gambar terakhir */
 @keyframes z-order-last {
   10%, 20% {
     z-index: 1;
@@ -128,23 +102,13 @@ body {
   }
 }
 
-/* Responsif untuk perangkat dengan layar lebih kecil */
+/* Responsif untuk perangkat kecil */
 @media only screen and (max-width: 600px) {
   #shine {
-    font-size: 22px;
-  }
-
-  #hedlinecontainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 60px;
+    font-size: 30px; /* Ukuran font lebih kecil di perangkat mobile */
   }
 
   .gallery {
-    --d: 10s; /* Durasi animasi */
-    display: grid;
-    place-items: center;  /* Memusatkan gambar */
     width: 150px;
     margin-left: auto;
     margin-right: auto;
