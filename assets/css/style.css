@@ -53,10 +53,11 @@ body {
   --d: 10s; /* Durasi animasi */
   display: grid;
   place-items: center; /* Memusatkan gambar di dalam galeri */
-  width: 220px;
-  height: 220px; /* Sesuaikan dengan ukuran yang diinginkan */
+  width: 220px; /* Ukuran lebar galeri */
+  height: 220px; /* Ukuran tinggi galeri */
   margin-left: auto;
   margin-right: auto;
+  position: relative; /* Posisi relatif untuk memastikan gambar berlapis */
 }
 
 /* Gambar dalam galeri */
@@ -113,8 +114,8 @@ body {
     --d: 10s;
     display: grid;
     place-items: center;
-    width: 150px;
-    height: 150px; /* Sesuaikan ukuran galeri untuk perangkat kecil */
+    width: 150px; /* Sesuaikan ukuran galeri untuk perangkat kecil */
+    height: 150px;
     margin-left: auto;
     margin-right: auto;
   }
