@@ -16,6 +16,14 @@ body {
   margin-bottom: 60px;
 }
 
+#hedlinecontainer2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 60px;
+}
+
 #shine {
   font-size: 60px;
   font-weight: bold;
