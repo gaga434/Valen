@@ -1,51 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
+/* Mengatur elemen body untuk memusatkan konten secara vertikal dan horizontal */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;  /* Memusatkan konten secara vertikal dan horizontal */
+  background: antiquewhite;
+  overflow: hidden;
+}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Valentine's</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script 
-    src="https://cdn.rawgit.com/bungfrangki/efeksalju/2a7805c7/efek-salju.js" 
-    type="text/javascript">
-  </script>
-</head>
+/* Pengaturan untuk headline */
+#hedlinecontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px; /* Memberikan jarak antara headline dan konten lainnya */
+}
 
-<body>
+/* Pengaturan untuk teks yang bergerak */
+#shine {
+  font-size: 60px;
+  font-weight: bold;
+  color: rgba(255, 0, 102, 0.3);
+  z-index: 10;
+  background: -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+  -webkit-background-size: 150px;
+  -webkit-background-clip: text;
+  -webkit-animation-name: shine;
+  -webkit-animation-duration: 3s; /* Durasi animasi */
+  -webkit-animation-iteration-count: infinite;
+  text-shadow: 0 0px 0px rgba(233, 85, 189, 0.419);
+}
 
-  <!-- Musik background -->
-  <audio class="song" loop autoplay>
-    <source src="lagu.mp3" type="audio/mpeg">
-    Your browser isn't invited for super fun audio time.
-  </audio>
+/* Animasi untuk efek shine */
+@-webkit-keyframes shine {
+  0%, 10% {
+    background-position: -1000px;
+  }
+  20% {
+    background-position: top left;
+  }
+  90% {
+    background-position: top right;
+  }
+  100% {
+    background-position: 1000px;
+  }
+}
 
-  <!-- Headline section -->
-  <div id="hedlinecontainer">
-    <div id="shine">Happy Valentine Day💞</div>
-  </div>
+/* Galeri gambar */
+.gallery {
+  display: grid;
+  place-items: center;  /* Memusatkan gambar */
+  width: 220px;
+  height: 220px; /* Menyesuaikan ukuran gambar */
+  margin: 20px auto; /* Memberikan margin atas dan bawah */
+}
 
-  <div id="hedlinecontainer">
-    <div id="shine">Sri Mulyani💞</div>
-  </div>
+.gallery > img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 10px solid #f2f2f2;
+  box-shadow: 0 0 4px #0007;
+  z-index: 2;
+}
 
-  <!-- Galeri gambar -->
-  <div class="gallery">
-    <img src="assets/image/foto1.png" alt="love you">
-    <img src="assets/image/foto2.png" alt="love you">
-    <img src="assets/image/foto3.png" alt="love you">
-    <img src="assets/image/foto4.png" alt="love you">
-    <img src="assets/image/foto5.png" alt="love you">
-  </div>
+/* Pesan tambahan */
+#text-message {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  <!-- Pesan tambahan -->
-  <div id="shine">
-    Texting is fine. Calling is okay, but being with you is the best, hehe.
-  </div>
+/* Responsif untuk perangkat dengan layar lebih kecil */
+@media only screen and (max-width: 600px) {
+  #shine {
+    font-size: 22px;
+  }
 
-  <!-- Skrip utama -->
-  <script type="application/javascript" src="script/main.js"></script>
+  .gallery {
+    width: 150px;
+  }
 
-</body>
-
-</html>
+  #text-message {
+    font-size: 16px;
+    padding: 8px;
+  }
+}
