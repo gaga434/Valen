@@ -28,31 +28,31 @@
       animation: shuffle 20s infinite;
     }
 
-    /* Animasi untuk efek kartu yang dikocok */
+    /* Animasi untuk efek kartu remi yang diputar */
     @keyframes shuffle {
       0% {
         opacity: 0;
-        transform: rotateY(90deg); /* Mengubah rotasi gambar pada sumbu Y */
+        transform: rotateY(90deg); /* Gambar tersembunyi di sisi samping */
       }
       20% {
         opacity: 1;
-        transform: rotateY(0deg); /* Menyajikan gambar secara normal */
+        transform: rotateY(0deg); /* Menampilkan gambar normal */
       }
       40% {
         opacity: 1;
-        transform: rotateY(180deg); /* Menyajikan gambar terbalik */
+        transform: rotateY(180deg); /* Gambar terbalik seperti sisi belakang kartu */
       }
       60% {
-        opacity: 0;
-        transform: rotateY(270deg); /* Gambar kembali terbalik */
+        opacity: 1;
+        transform: rotateY(360deg); /* Gambar kembali ke posisi depan setelah diputar penuh */
       }
       80% {
         opacity: 1;
-        transform: rotateY(0deg); /* Gambar kembali normal */
+        transform: rotateY(180deg); /* Gambar terbalik lagi */
       }
       100% {
         opacity: 0;
-        transform: rotateY(90deg); /* Menyembunyikan gambar lagi */
+        transform: rotateY(90deg); /* Gambar kembali tersembunyi */
       }
     }
 
