@@ -1,19 +1,18 @@
-/* Font Romantis */
+/* Mengimpor font romantis */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
-/* Menambahkan Font dan Membuat Teks Romantis */
+/* Style untuk body */
 body {
   margin: 0;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Memusatkan secara vertikal */
-  align-items: center; /* Memusatkan secara horizontal */
-  background: linear-gradient(to bottom right, #f8c9d2, #ff9dc1); /* Latar belakang dengan gradasi warna lembut */
+  display: grid;
+  place-content: center;
+  background: linear-gradient(to bottom right, #f8c9d2, #ff9dc1); /* Gradasi romantis */
   font-family: 'Great Vibes', cursive; /* Font romantis */
   overflow: hidden;
 }
 
+/* Gaya untuk teks yang bercahaya */
 #shine {
   font-size: 60px;
   font-weight: bold;
@@ -23,12 +22,12 @@ body {
   -webkit-background-size: 150px;
   -webkit-background-clip: text;
   -webkit-animation-name: shine;
-  -webkit-animation-duration: 3s;
+  -webkit-animation-duration: 3s; /* Durasi efek */
   -webkit-animation-iteration-count: infinite;
-  text-shadow: 0 0px 5px rgba(233, 85, 189, 0.6); /* Menambahkan efek cahaya lembut di sekitar teks */
+  text-shadow: 0 0px 5px rgba(233, 85, 189, 0.6); /* Efek cahaya lembut di sekitar teks */
 }
 
-/* Efek Shine */
+/* Animasi shine */
 @-webkit-keyframes shine {
   0%, 10% {
     background-position: -1000px;
@@ -44,14 +43,23 @@ body {
   }
 }
 
-/* Gaya Teks Tambahan */
+/* Mengatur elemen #hedlinecontainer */
+#hedlinecontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+/* Gaya untuk teks tambahan */
 #shine, .gallery img {
   color: #ff66b2; /* Warna pink romantis */
   text-align: center;
-  letter-spacing: 2px; /* Memberikan jarak antar huruf untuk kesan elegan */
+  letter-spacing: 2px; /* Spasi antar huruf untuk kesan elegan */
 }
 
-/* Galeri Gambar */
+/* Gaya Galeri Gambar */
 .gallery {
   --d: 10s; /* Durasi animasi */
   display: grid;
@@ -69,12 +77,12 @@ body {
   aspect-ratio: 1;
   object-fit: cover;
   border: 10px solid #f2f2f2;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Efek bayangan yang lembut */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Bayangan lembut untuk gambar */
   z-index: 2;
   animation: slide var(--d) infinite, z-order var(--d) infinite steps(1);
 }
 
-/* Animasi Gambar */
+/* Animasi untuk gambar */
 @keyframes slide {
   10% {
     transform: translateX(120%) rotate(var(--r));
@@ -105,7 +113,7 @@ body {
 /* Responsif untuk perangkat kecil */
 @media only screen and (max-width: 600px) {
   #shine {
-    font-size: 30px; /* Ukuran font lebih kecil di perangkat mobile */
+    font-size: 30px; /* Ukuran font lebih kecil untuk perangkat mobile */
   }
 
   .gallery {
