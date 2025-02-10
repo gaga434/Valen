@@ -24,30 +24,35 @@
       height: 100%;
       object-fit: cover; /* Memastikan gambar menutupi seluruh area */
       opacity: 0;
-      animation: roll 10s infinite;
+      transform-origin: center; /* Titik rotasi berada di tengah gambar */
+      animation: shuffle 10s infinite;
     }
 
-    /* Menambahkan animasi untuk bergulir dan tumpang tindih */
-    @keyframes roll {
+    /* Animasi untuk efek kartu yang dikocok */
+    @keyframes shuffle {
       0% {
         opacity: 0;
-        transform: rotate(0deg);
+        transform: rotateY(90deg); /* Mengubah rotasi gambar pada sumbu Y */
       }
-      25% {
+      20% {
         opacity: 1;
-        transform: rotate(90deg);
+        transform: rotateY(0deg); /* Menyajikan gambar secara normal */
       }
-      50% {
+      40% {
+        opacity: 1;
+        transform: rotateY(180deg); /* Menyajikan gambar terbalik */
+      }
+      60% {
         opacity: 0;
-        transform: rotate(180deg);
+        transform: rotateY(270deg); /* Gambar kembali terbalik */
       }
-      75% {
+      80% {
         opacity: 1;
-        transform: rotate(270deg);
+        transform: rotateY(0deg); /* Gambar kembali normal */
       }
       100% {
         opacity: 0;
-        transform: rotate(360deg);
+        transform: rotateY(90deg); /* Menyembunyikan gambar lagi */
       }
     }
 
